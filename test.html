@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Учебный стенд: Вход в интернет-банк (демо)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a5f7a 0%, #0f3b4a 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Основной контейнер */
+        .login-container {
+            max-width: 450px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        /* Шапка (имитация банковского стиля) */
+        .header {
+            background: #2d9c6b;
+            padding: 24px 28px;
+            text-align: center;
+            color: white;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .logo span {
+            font-size: 32px;
+        }
+
+        .logo-text {
+            font-weight: 500;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Тело формы */
+        .form-body {
+            padding: 32px 28px 28px;
+        }
+
+        .warning-badge {
+            background-color: #fff3e0;
+            border-left: 5px solid #f5a623;
+            padding: 12px 16px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+            font-size: 13px;
+            color: #6b4a1a;
+        }
+
+        .warning-badge strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-group {
+            margin-bottom: 24px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e2a3a;
+            margin-bottom: 8px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 16px;
+            border: 1px solid #cfdfe8;
+            border-radius: 16px;
+            transition: all 0.2s;
+            background: #fefefe;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2d9c6b;
+            box-shadow: 0 0 0 3px rgba(45, 156, 107, 0.2);
+        }
+
+        /* Дополнительные опции */
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+            font-size: 13px;
+        }
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .checkbox input {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .forgot-link {
+            color: #2d9c6b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Кнопка входа */
+        .login-btn {
+            width: 100%;
+            background: #2d9c6b;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 700;
+            color: white;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .login-btn:hover {
+            background: #248a5d;
+        }
+
+        /* Подвал с доп. ссылками */
+        .footer-links {
+            text-align: center;
+            font-size: 13px;
+            border-top: 1px solid #ecf3f7;
+            padding-top: 20px;
+            margin-top: 8px;
+        }
+
+        .footer-links a {
+            color: #4f6f8f;
+            text-decoration: none;
+            margin: 0 12px;
+        }
+
+        .footer-links a:hover {
+            color: #2d9c6b;
+        }
+
+        /* Учебное предупреждение */
+        .educational-note {
+            background: #eef2fa;
+            padding: 16px;
+            text-align: center;
+            font-size: 12px;
+            color: #1e4663;
+            border-top: 1px solid #d4e0e9;
+        }
+
+        .educational-note a {
+            color: #1a5f7a;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <div class="header">
+        <div class="logo">
+            <span>🏦</span> 
+            <span style="font-weight: 700;">SBERBANK</span>
+            <span>🔒</span>
+        </div>
+        <div class="logo-text">Интернет-банк • Учебный стенд</div>
+    </div>
+
+    <div class="form-body">
+        <!-- Явное предупреждение о том, что это учебная среда -->
+        <div class="warning-badge">
+            <strong>⚠️ ВНИМАНИЕ: УЧЕБНЫЙ СТЕНД</strong>
+            Данная страница создана исключительно для образовательных целей (кибербезопасность, 2 курс). 
+            Не передавайте реальные учётные данные. Все введённые данные никуда не отправляются.
+        </div>
+
+        <form id="loginForm" action="#" method="post">
+            <div class="input-group">
+                <label>Идентификатор (логин / номер карты)</label>
+                <input type="text" id="username" name="username" placeholder="Введите логин или номер карты" autocomplete="off">
+            </div>
+
+            <div class="input-group">
+                <label>Пароль</label>
+                <input type="password" id="password" name="password" placeholder="Введите пароль">
+            </div>
+
+            <div class="options">
+                <label class="checkbox">
+                    <input type="checkbox" id="rememberMe"> Запомнить меня
+                </label>
+                <a href="#" class="forgot-link" id="forgotLink">Забыли пароль?</a>
+            </div>
+
+            <button type="submit" class="login-btn" id="submitBtn">ВОЙТИ</button>
+        </form>
+
+        <div class="footer-links">
+            <a href="#">Регистрация</a>
+            <a href="#">Безопасность</a>
+            <a href="#">Помощь</a>
+        </div>
+    </div>
+
+    <div class="educational-note">
+        🔐 Это демонстрационная страница для практических занятий по кибербезопасности. 
+        Не используйте для фишинга или вредоносных целей. 
+        <br>Создано в образовательных целях. <a href="#" id="debugLink">[Показать логи в консоль]</a>
+    </div>
+</div>
+
+<script>
+    // Полностью учебный скрипт: логирует в консоль, НЕ отправляет данные на сервер
+    (function() {
+        const form = document.getElementById('loginForm');
+        const debugLink = document.getElementById('debugLink');
+        
+        // Функция для вывода предупреждения и логирования (учебный режим)
+        function handleSubmit(event) {
+            event.preventDefault();  // Никуда не отправляем форму
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            
+            if (!username || !password) {
+                alert('[Учебный стенд] Пожалуйста, заполните оба поля (учебная проверка)');
+                console.warn('[Учебный лог] Попытка входа с пустыми полями');
+                return;
+            }
+            
+            // Имитация анализа (только для учебных целей)
+            console.group('=== Учебный лог входа (кибербезопасность) ===');
+            console.log('Введён логин/карта:', username);
+            console.log('Длина пароля:', password.length, 'символов');
+            console.log('Время:', new Date().toLocaleString());
+            console.warn('❗ Данные никуда не переданы. Это учебная форма.');
+            console.groupEnd();
+            
+            alert(`[Учебный режим] Данные не отправлены.\nЛогин: ${username}\nПароль: ${'*'.repeat(password.length)}\n\nИспользуйте консоль браузера (F12) для анализа.`);
+            
+            // Опционально: очистка полей для следующей попытки (или оставить для наглядности)
+            // form.reset(); 
+        }
+        
+        // Обработка клика по "Забыли пароль" — учебное сообщение
+        const forgotLink = document.getElementById('forgotLink');
+        if (forgotLink) {
+            forgotLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('[Учебный стенд] Функция восстановления пароля не реализована. Это демонстрационная страница.');
+            });
+        }
+        
+        // Кнопка показать логи (для удобства)
+        if (debugLink) {
+            debugLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.clear();
+                console.log('💡 Учебный стенд активен. Форма не отправляет данные на сервер.');
+                console.log('🔍 Для имитации атаки или тестирования используйте инструменты разработчика.');
+                alert('Откройте консоль разработчика (F12) для просмотра учебных логов.');
+            });
+        }
+        
+        // Вешаем обработчик на форму
+        form.addEventListener('submit', handleSubmit);
+        
+        console.log('✅ Учебная страница загружена. Все действия логируются только локально.');
+    })();
+</script>
+</body>
+</html>
